@@ -33,6 +33,7 @@
     "react-to-print": "^2.15.1",
     "react-toastify": "^10.0.4",
     "redux-persist": "^6.0.0",
+    "server": "file:../server",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7"
   },

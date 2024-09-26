@@ -34,6 +34,8 @@ app.use(express.urlencoded({ extended: true }));
 //  Cookie parser middleware
 app.use(cookieParser());
 
+console.log("Current directory:", __dirname);
+
 app.use("/api/recipes", recipeRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/contacts", contactRoutes);
