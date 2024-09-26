@@ -21,11 +21,19 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://kitchen-tales.vercel.app/",
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
   })
 );
+
+// app.use(
+//   cors({
+//     origin: "http://localhost:5173",
+//     methods: "GET,POST,PUT,DELETE",
+//     credentials: true,
+//   })
+// );
 
 // Body parser middleware
 app.use(express.json());
@@ -49,7 +57,7 @@ if (process.env.NODE_ENV === "production") {
 
   // any route that is not an api will be redirected to index.html
   app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "../client/dist", "index.html"))
+    res.sendFile(path.resolve(__dirname, "../client", "dist", "index.html"))
   );
 } else {
   app.get("/", (req, res) => {
