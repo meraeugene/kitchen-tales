@@ -45,7 +45,7 @@ app.use("/api/upload", uploadImageRoutes);
 
 if (process.env.NODE_ENV === "production") {
   // set static folder
-  app.use(express.static(path.join(__dirname, "/client/dist")));
+  app.use(express.static(path.join(__dirname, "../client/dist")));
 
   // any route that is not an api will be redirected to index.html
   app.get("*", (req, res) =>
