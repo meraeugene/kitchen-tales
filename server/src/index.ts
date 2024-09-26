@@ -21,7 +21,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://kitchen-tales.vercel.app/",
+    origin: "https://kitchen-tales.vercel.app",
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
   })
