@@ -29,13 +29,6 @@ const router = express.Router();
 router.post("/auth/register", registerUser);
 // Login
 router.post("/auth/login", loginUser);
-//  Validate User Token
-router.get("/validate-token", protect, validateToken);
-//  Get user profile
-router
-  .route("/profile")
-  .get(protect, getUserProfile)
-  .put(protect, updateUserProfile);
 //  Logout
 router.post("/auth/logout", logoutUser);
 // Send Reset Password Link
@@ -48,6 +41,14 @@ router.put("/resetPassword", protect, resetPassword);
 router.put("/resetEmail", protect, resetEmail);
 // Remind User
 router.put("/remind", protect, remindUser);
+//  Validate User Token
+router.get("/validate-token", protect, validateToken);
+
+//  Get user profile
+router
+  .route("/profile")
+  .get(protect, getUserProfile)
+  .put(protect, updateUserProfile);
 
 // ADMIN ROUTES
 //  Get all users
