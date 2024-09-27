@@ -25,7 +25,7 @@ const router = express.Router();
 // Manage recipe (create, get)
 router.route("/").get(getRecipes).post(protect, createRecipe);
 // Get individual recipes
-router.route("/myrecipes").get(protect, getMyRecipes);
+router.route("/myrecipes").get(getMyRecipes);
 // Get all cuisines
 router.route("/cuisines").get(getCuisines);
 // Sort and get  recipes  by tag
