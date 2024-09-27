@@ -30,7 +30,7 @@ const router = express.Router();
 router.route("/").get(getRecipes).post(protect, createRecipe);
 
 // Get my recipes
-router.route("/myrecipes").get(protect, getMyRecipes);
+router.route("/myrecipes").get(getMyRecipes);
 
 // Get all cuisines
 router.route("/cuisines").get(getCuisines);
