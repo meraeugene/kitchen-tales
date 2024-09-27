@@ -2,8 +2,8 @@
 //   process.env.NODE_ENV === "development" ? "http:/localhost:5000" : "";
 // export const BASE_URL = "http://localhost:5000";
 // export const BASE_URL = "https://tim-hortons-clone.onrender.com/";
-export const BASE_URL = "http://localhost:5000";
-// export const BASE_URL = "https://kitchen-tales.onrender.com";
+// export const BASE_URL = "http://localhost:5000";
+export const BASE_URL = "https://kitchen-tales.onrender.com";
 export const RECIPES_URL = "/api/recipes";
 export const BOOKMARKS_URL = "/api/bookmarks";
 export const ARTICLES_URL = "/api/articles";
