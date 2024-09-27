@@ -74,7 +74,7 @@ const getMyRecipes = asyncHandler(
         .populate("user", "id email fullName");
 
       const count = await Recipe.countDocuments({
-        user: req.userCredentials._id,
+        user: req.query.id,
       });
 
       if (recipes) {

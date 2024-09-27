@@ -22,40 +22,65 @@ import checkObjectId from "../middlewares/checkObjectId";
 
 const router = express.Router();
 
-// Manage recipe (create, get)
+// ===================
+// Recipe Routes
+// ===================
+
+// Get all recipes and create a new recipe
 router.route("/").get(getRecipes).post(protect, createRecipe);
-// Get individual recipes
-router.route("/myrecipes").get(getMyRecipes);
+
+// Get my recipes
+router.route("/myrecipes").get(protect, getMyRecipes);
+
 // Get all cuisines
 router.route("/cuisines").get(getCuisines);
-// Sort and get  recipes  by tag
+
+// Get recipes by tag
 router.route("/tag/:tag").get(getRecipesByTag);
+
+// ===================
+// Recipe Reviews Routes
+// ===================
+
+// Get all reviews (Admin only)
 router.route("/reviews").get(protect, admin, getAllRecipeReviews);
+
 // Delete a review by Admin
 router
   .route("/reviews/:id")
   .delete(protect, admin, checkObjectId, deleteReviewById);
-// Create a review by everyone
+
+// Create a review for a specific recipe
 router.route("/:id/reviews").post(protect, checkObjectId, createRecipeReview);
-// Add reply to a review
+
+// Add a reply to a review
 router
   .route("/:recipeId/reviews/:reviewId/replies")
   .post(protect, addReplyToReview);
+
 // Like a review
 router.route("/:recipeId/reviews/:reviewId/like").post(protect, likeReview);
-//  Dislike  a review
+
+// Dislike a review
 router
   .route("/:recipeId/reviews/:reviewId/dislike")
   .post(protect, dislikeReview);
+
 // Like a reply within a review
 router
   .route("/:recipeId/reviews/:reviewId/replies/:replyId/like")
   .post(protect, likeReply);
+
 // Dislike a reply within a review
 router
   .route("/:recipeId/reviews/:reviewId/replies/:replyId/dislike")
   .post(protect, dislikeReply);
-// Manage  recipe  by Id (get, update,delete)
+
+// ===================
+// Individual Recipe Routes
+// ===================
+
+// Manage recipe by ID (get, update, delete)
 router
   .route("/:id")
   .get(checkObjectId, getRecipeById)
