@@ -192,7 +192,15 @@ const validateToken = asyncHandler(
 // @access Public
 const logoutUser = asyncHandler(async (req: Request, res: Response) => {
   try {
-    res.clearCookie("jwt");
+    // use this if same site ang backend and client host
+    // res.clearCookie("jwt");
+
+    //  use this if different site ang backend and client host
+    res.clearCookie("jwt", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV !== "development", // secure: true in production
+      sameSite: "none", // Ensure cookies can be shared between different domains
+    });
     // Respond with a 200 OK status and a success message
     res.status(200).json({ message: "Log out successfully", redirectTo: "/" });
   } catch (error) {
