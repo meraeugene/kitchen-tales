@@ -107,6 +107,10 @@ const RecipeDetails = () => {
     }
   };
 
+  const shareUrl = `${import.meta.env.VITE_WEBSITE_URL}/recipe?id=${recipeId}&tag=${tag}&recipeTitle=${recipeTitle}`;
+  const encodedUrl = encodeURI(shareUrl);
+  const encodedTitle = encodeURIComponent(`${recipeTitle} Recipe`);
+
   return (
     <div className="p-8 lg:px-16 lg:py-12 xl:px-24">
       {recipeLoading ? (
@@ -187,10 +191,7 @@ const RecipeDetails = () => {
                 />
               </div>
 
-              <SocialMediaShareButtons
-                url={encodeURI(import.meta.env.VITE_WEBSITE_URL)}
-                title={encodeURIComponent(`${recipeTitle} Recipe`)}
-              />
+              <SocialMediaShareButtons url={encodedUrl} title={encodedTitle} />
             </div>
 
             <div className="overview__container print-no-margin mt-8">
@@ -205,7 +206,7 @@ const RecipeDetails = () => {
                 Cook Tips
               </h1>
 
-              <div className="print-grid-col-3 mt-8 grid grid-cols-1  gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 xl:grid-cols-4">
+              <div className="print-grid-col-3 mb-16 mt-8 grid  grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 xl:grid-cols-4 ">
                 {recipe.cooksTips.map((tip: string, index: number) => (
                   <div
                     className="rounded-md border p-4 text-sm shadow-md lg:text-base"

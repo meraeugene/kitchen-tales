@@ -1789,7 +1789,7 @@ const recipes = [
       "Add fruit slices, such as lime or orange, for extra freshness.",
       "Adjust the sweetness and acidity to your liking by modifying the simple syrup and lime juice quantities.",
     ],
-    videoLink: "https://www.youtube.com/watch?v=ABC123XYZ",
+    videoLink: "https://www.youtube.com/watch?v=iv-uxM713q8&t=15s",
     tags: [
       "Rum",
       "Mixed Drinks",
@@ -2461,7 +2461,7 @@ const recipes = [
       {
         item: "Powdered sugar for dusting",
       },
-    ],    
+    ],
     instructions: [
       {
         step: "Preheat your oven to 350°F (175°C). Grease a 9x13-inch baking pan.",
@@ -2594,7 +2594,7 @@ const recipes = [
       {
         item: "Chopped pistachios for garnish",
       },
-    ],    
+    ],
     instructions: [
       {
         step: "In a blender, combine the grated carrots, coconut milk, almond milk, sugar, soaked cashews, raisins, cardamom powder, saffron strands, and agave nectar (or maple syrup). Blend until smooth and well combined.",
@@ -2717,7 +2717,7 @@ const recipes = [
         item: "Key lime slices for garnish",
       },
     ],
-    
+
     instructions: [
       {
         step: "Preheat your oven to 350°F (175°C).",
@@ -2765,7 +2765,7 @@ const recipes = [
       "Chill the pie thoroughly for the best texture and flavor.",
       "Feel free to use regular limes if key limes are not available.",
     ],
-    videoLink: "https://www.youtube.com/watch?v=ABC123XYZ",
+    videoLink: "https://www.youtube.com/watch?v=UOztOU4T-_c",
     tags: [
       "Key Lime Pie",
       "Dessert",
@@ -2847,7 +2847,7 @@ const recipes = [
         item: "Vanilla ice cream for serving",
       },
     ],
-    
+
     instructions: [
       {
         step: "Preheat your oven to 425°F (220°C). Grease and flour the ramekins or baking cups.",
@@ -2976,7 +2976,7 @@ const recipes = [
       {
         item: "Vanilla ice cream for serving",
       },
-    ],    
+    ],
     instructions: [
       {
         step: "Preheat your oven to 425°F (220°C). Grease and flour the ramekins or baking cups.",
@@ -3039,103 +3039,6 @@ const recipes = [
     mealType: "Dessert",
     rating: 4.9,
     numReviews: 55,
-  },
-  {
-    mainImage: "/images/gur.png",
-    recipeTitle: "Gur Makhana",
-    description:
-      "Indulge in the rich and gooey delight of Gur Makhana, a delightful treat that combines the earthy sweetness of jaggery (gur) with the crunchiness of roasted foxnuts (makhana). This traditional Indian snack is not only delicious but also a healthier alternative to satisfy your sweet cravings. Make a batch of Gur Makhana and enjoy the perfect blend of flavors and textures.",
-    servings: 4,
-    preparationTime: {
-      hours: "",
-      minutes: 15,
-    },
-    cookTime: {
-      hours: "",
-      minutes: 15,
-    },
-    totalTime: {
-      hours: "",
-      minutes: 30,
-    },
-    ingredients: [
-      {
-        quantity: 2,
-        measurement: "cups",
-        item: "foxnuts (makhana)",
-      },
-      {
-        quantity: "1/2",
-        measurement: "cup",
-        item: "jaggery (gur), grated",
-      },
-      {
-        quantity: "1/4",
-        measurement: "cup",
-        item: "ghee (clarified butter)",
-      },
-      {
-        quantity: "1/4",
-        measurement: "tsp",
-        item: "cardamom powder",
-      },
-      {
-        quantity: "1/4",
-        measurement: "cup",
-        item: "chopped nuts (almonds, cashews, pistachios)",
-      },
-    ],    
-    instructions: [
-      {
-        step: "In a pan, dry roast the foxnuts (makhana) until they become crisp. Keep aside.",
-        image: "",
-      },
-      {
-        step: "In another pan, melt ghee and add grated jaggery (gur). Stir continuously on low heat until the jaggery melts and forms a syrup.",
-        image: "",
-      },
-      {
-        step: "Add cardamom powder to the jaggery syrup and mix well.",
-        image: "",
-      },
-      {
-        step: "Add the roasted foxnuts (makhana) to the jaggery syrup. Mix until the foxnuts are well coated with the syrup.",
-        image: "",
-      },
-      {
-        step: "Add chopped nuts to the mixture and stir until everything is well combined.",
-        image: "",
-      },
-      {
-        step: "Allow the Gur Makhana mixture to cool completely. It will become crunchy as it cools.",
-        image: "",
-      },
-      {
-        step: "Once cooled, store Gur Makhana in an airtight container and enjoy this sweet and crunchy snack!",
-        image: "",
-      },
-    ],
-    cooksTips: [
-      "Adjust the quantity of jaggery according to your sweetness preference.",
-      "You can add a pinch of salt for a sweet-savory twist.",
-      "Experiment with different nuts for added variety.",
-    ],
-    videoLink: "https://www.youtube.com/watch?v=QwFrI3WQXkY",
-    tags: [
-      "Gur Makhana",
-      "Snack",
-      "Indian",
-      "Jaggery",
-      "Healthy",
-      "Quick and Easy",
-      "Binge-Worthy Bites",
-      "Effortless Eats",
-    ],
-    cuisineType: "Indian",
-    dietPreference: "Vegetarian",
-    mealType: "Snack",
-    rating: 4.8,
-    numReviews: 60,
   },
   {
     mainImage: "/images/passion.png",
@@ -3211,7 +3114,7 @@ const recipes = [
         measurement: "cup",
         item: "passionfruit pulp",
       },
-    ],    
+    ],
     instructions: [
       {
         step: "Preheat your oven to 375°F (190°C). Line a muffin tin with paper liners.",
@@ -3349,8 +3252,7 @@ const recipes = [
         measurement: "tbsp",
         item: "oil for shallow frying",
       },
-    
-    ],    
+    ],
     instructions: [
       {
         step: "In a blender, coarsely grind the corn kernels without adding water.",
@@ -3386,7 +3288,7 @@ const recipes = [
       "Serve with mint chutney or ketchup for a delightful dip.",
       "Adjust the spices according to your taste preferences.",
     ],
-    videoLink: "https://www.youtube.com/watch?v=ABC123XYZ",
+    videoLink: "https://www.youtube.com/watch?v=skXsuZ-O_-8",
     tags: [
       "Corn Cutlet",
       "Snack",
