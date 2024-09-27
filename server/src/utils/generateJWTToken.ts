@@ -21,9 +21,9 @@ const generateJWTToken = (res: Response, userId: string) => {
   res.cookie("jwt", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV !== "development",
-    // sameSite: "strict",
+    sameSite: "strict",
     // NONE IF DIFFERENT AND CLIENT AND SERVER HOST (FRONTEND: VERCEL) & (BACKEND: RENDER)
-    sameSite: "none",
+    // sameSite: "none",
     maxAge: 1000 * 60 * 60 * 24 * 365 * 7, // 7 days
   });
 };
