@@ -91,7 +91,7 @@ const RecipeByTagCard = ({ tag, count, currentRecipeId }: RecipeByTagProps) => {
       ) : error ? (
         <div className="mt-6">
           <Message
-            variant="error"
+            variant="info"
             message={error?.data?.message || error.error}
           />
         </div>
@@ -127,13 +127,13 @@ const RecipeByTagCard = ({ tag, count, currentRecipeId }: RecipeByTagProps) => {
                     >
                       {bookmarkedRecipesID?.includes(recipe._id) ? (
                         <div
-                          className="tooltip"
+                          className="lg:tooltip"
                           data-tip="Remove from Bookmarks"
                         >
                           <FaBookmark size={24} color="#29d343" />
                         </div>
                       ) : (
-                        <div className="tooltip" data-tip="Add to Bookmarks">
+                        <div className="lg:tooltip" data-tip="Add to Bookmarks">
                           <FaRegBookmark size={24} color="white" />
                         </div>
                       )}

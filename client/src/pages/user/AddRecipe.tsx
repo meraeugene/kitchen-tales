@@ -767,10 +767,14 @@ const AddRecipe = () => {
               <option value="Mexican">Mexican</option>
               <option value="Indian">Indian</option>
               <option value="Asian">Asian</option>
+              <option value="American">American</option>
+              <option value="Cajun">Cajun</option>
+              <option value="Beverage">Beverage</option>
               <option value="Mediterranean">Mediterranean</option>
               <option value="Middle Eastern">Middle Eastern</option>
               <option value="African">African</option>
               <option value="French">French</option>
+              <option value="French">Global</option>
             </select>
           </label>
 
@@ -808,6 +812,7 @@ const AddRecipe = () => {
               <option value="Soup">Soup</option>
               <option value="Main Course">Main Course</option>
               <option value="Beverage">Beverage</option>
+              <option value="Beverage">Drink</option>
             </select>
           </label>
 
@@ -839,6 +844,8 @@ const AddRecipe = () => {
               <option value="Paleo">Paleo</option>
               <option value="Low Carb">Low Carb</option>
               <option value="High Protein">High Protein</option>
+              <option value="Regular">Regular</option>
+              <option value="Eggless">Eggless</option>
             </select>
           </label>
         </div>

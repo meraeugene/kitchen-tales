@@ -192,7 +192,7 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="mobile-header flex items-center justify-between px-8 md:hidden  lg:hidden">
+      <div className=" mobile-header flex items-center justify-between px-8 md:hidden  lg:hidden">
         <Link to="/" className="logo">
           <img src="/images/logo.png" alt="" className="w-20" />
         </Link>

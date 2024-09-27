@@ -18,7 +18,7 @@ const RecipeSection: FC<RecipeSectionProps> = ({
   className,
 }) => (
   <div
-    className={`${className} recipe-section__container p-8 lg:px-16 xl:px-24 `}
+    className={`${className} recipe-section__container  p-8 lg:px-16 xl:px-24 `}
   >
     <div className="flex flex-col justify-between md:flex-row">
       <h1 className="font-cormorant text-3xl xl:text-4xl">{title}</h1>

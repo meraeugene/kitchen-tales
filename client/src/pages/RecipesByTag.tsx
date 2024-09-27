@@ -82,6 +82,10 @@ const RecipesByTag = memo(() => {
     "Middle Eastern",
     "African",
     "French",
+    "American",
+    "Cajun",
+    "Beverage",
+    "Global",
   ];
 
   const dietTypes = [
@@ -91,6 +95,8 @@ const RecipesByTag = memo(() => {
     "Paleo",
     "Low Carb",
     "High Protein",
+    "Regular",
+    "Eggless",
   ];
 
   const mealTypes = [
@@ -106,6 +112,7 @@ const RecipesByTag = memo(() => {
     "Soup",
     "Main Course",
     "Beverage",
+    "Drink",
   ];
 
   const cookingTimes = ["5 minutes below", "6-10 minutes", "15 minutes above"];

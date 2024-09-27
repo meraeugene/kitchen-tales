@@ -35,7 +35,7 @@ const SearchComponent = ({ className }: SearchProps) => {
   };
 
   return (
-    <form className="sticky top-[50px] z-[5]">
+    <form className=" sticky top-[50px] z-[5]">
       <div className={`${className} relative h-12 focus-within:shadow-lg`}>
         <IoIosSearch
           color="#121212"
@@ -44,7 +44,7 @@ const SearchComponent = ({ className }: SearchProps) => {
         />
 
         <input
-          className={`peer h-full w-full rounded-3xl pl-12 pr-4 text-gray-700 outline-none ${keyword ? "rounded-bl-none rounded-br-none" : ""}`}
+          className={`peer h-full w-full pl-12 pr-4 text-gray-700 outline-none md:rounded-3xl ${keyword ? "rounded-bl-none rounded-br-none" : ""}`}
           type="search"
           id="search"
           placeholder="Search a recipe..."
