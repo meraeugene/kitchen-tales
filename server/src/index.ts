@@ -12,10 +12,12 @@ import socialsAuthRoutes from "./routes/socialsAuthRoutes";
 import uploadImageRoutes from "./routes/uploadImageRoutes";
 import articleRoutes from "./routes/articleRoutes";
 import { notFound, errorHandler } from "./middlewares/errorMiddleware";
+import job from "./cron/cron";
 
 const port = process.env.PORT || 5000;
 
 connectDb();
+job.start();
 
 const app = express();
 
@@ -41,8 +43,6 @@ app.use(express.urlencoded({ extended: true }));
 
 //  Cookie parser middleware
 app.use(cookieParser());
-
-console.log("Current directory:", __dirname);
 
 app.use("/api/recipes", recipeRoutes);
 app.use("/api/users", userRoutes);
