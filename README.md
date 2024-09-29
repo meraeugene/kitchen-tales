@@ -1,7 +1,6 @@
 # Kitchen Tales 
 
-![tim-hortons-clone onrender com_ (2)](https://github.com/meraeugene/tim-hortons-clone/assets/107909136/53f36bd4-417a-4de0-90a8-d750a3171901)
-![tim-hortons-clone onrender com_ (1)](https://github.com/meraeugene/tim-hortons-clone/assets/107909136/764ce85d-a123-4eea-bd46-a42902e6357a)
+![thumbnail](https://github.com/user-attachments/assets/5649034b-d545-47f9-b679-468c417e6136)
 
 > A Recipe Website Application  built with the MERN stack & Redux Toolkit.
 >
