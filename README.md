@@ -1,6 +1,7 @@
 # Kitchen Tales 
 
 ![thumbnail](https://github.com/user-attachments/assets/5649034b-d545-47f9-b679-468c417e6136)
+![localhost_5173_recipes](https://github.com/user-attachments/assets/68b8a5f5-12fa-4776-813e-15e8d64e1efd)
 
 > A Recipe Website Application  built with the MERN stack & Redux Toolkit.
 >
