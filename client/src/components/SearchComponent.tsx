@@ -44,7 +44,7 @@ const SearchComponent = ({ className }: SearchProps) => {
         />
 
         <input
-          className={`peer h-full w-full pl-12 pr-4 text-gray-700 outline-none md:rounded-3xl ${keyword ? "rounded-bl-none rounded-br-none" : ""}`}
+          className={`peer h-full w-full pl-12 pr-4 text-gray-700 outline-none md:rounded-3xl ${keyword ? "md:rounded-bl-none md:rounded-br-none" : ""}`}
           type="search"
           id="search"
           placeholder="Search a recipe..."
