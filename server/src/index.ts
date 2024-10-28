@@ -12,12 +12,12 @@ import socialsAuthRoutes from "./routes/socialsAuthRoutes";
 import uploadImageRoutes from "./routes/uploadImageRoutes";
 import articleRoutes from "./routes/articleRoutes";
 import { notFound, errorHandler } from "./middlewares/errorMiddleware";
-import job from "./cron/cron";
+// import job from "./cron/cron";
 
 const port = process.env.PORT || 5000;
 
 connectDb();
-job.start();
+// job.start();
 
 const app = express();
 
