@@ -27,7 +27,8 @@ const sendResetEmail = async ({ _id, email }: ResetEmailParams) => {
     await newEmailReset.save();
 
     // Construct the email reset link with the hashed token
-    const resetLink = `http://localhost:5173/reset-email?token=${hashedResetToken}`;
+    // const resetLink = `http://localhost:5173/reset-email?token=${hashedResetToken}`;
+    const resetLink = `https://kitchen-tales.onrender.com/reset-email?token=${hashedResetToken}`;
 
     // Create the email content
     const mailOptions = {
