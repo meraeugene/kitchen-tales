@@ -95,17 +95,20 @@ const RecipeByTagCard = ({ tag, count, currentRecipeId }: RecipeByTagProps) => {
             message={error?.data?.message || error.error}
           />
         </div>
+      ) : data?.recipes?.length === 1 &&
+        data.recipes[0]._id === currentRecipeId ? (
+        <div className="mt-6">
+          <Message variant="info" message="No recipes similar." />
+        </div>
       ) : (
         <div>
-          <div
-            className={` mt-8  grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5`}
-          >
+          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
             {data?.recipes
               .filter((recipe: Recipe) => recipe._id !== currentRecipeId) // Filter out the current recipe
               .slice(0, count)
               .map((recipe: Recipe) => (
                 <div key={recipe._id}>
-                  <div className="relative  ">
+                  <div className="relative">
                     <div>
                       <Link
                         to={`/recipe?id=${recipe._id}&tag=${tag}&recipeTitle=${recipe.recipeTitle}`}
@@ -114,7 +117,7 @@ const RecipeByTagCard = ({ tag, count, currentRecipeId }: RecipeByTagProps) => {
                         <img
                           src={recipe.mainImage}
                           alt={recipe.recipeTitle}
-                          className="h-[200px]   w-full  rounded-[4px] object-cover"
+                          className="h-[200px] w-full rounded-[4px] object-cover"
                           loading="lazy"
                         />
                         <div className="absolute inset-0 bg-black opacity-10"></div>{" "}
@@ -123,7 +126,7 @@ const RecipeByTagCard = ({ tag, count, currentRecipeId }: RecipeByTagProps) => {
 
                     <button
                       onClick={() => toggleBookmark(recipe._id)}
-                      className="  absolute right-[10px] top-[10px]"
+                      className="absolute right-[10px] top-[10px]"
                     >
                       {bookmarkedRecipesID?.includes(recipe._id) ? (
                         <div
@@ -151,7 +154,7 @@ const RecipeByTagCard = ({ tag, count, currentRecipeId }: RecipeByTagProps) => {
 
                     <Link to={`/recipe/about-creator/${recipe.user._id}`}>
                       By{" "}
-                      <span className="text-green-800  xl:text-base">
+                      <span className="text-green-800 xl:text-base">
                         {recipe.user.fullName}
                       </span>
                     </Link>

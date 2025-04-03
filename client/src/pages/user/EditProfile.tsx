@@ -14,6 +14,7 @@ const EditProfile = () => {
   const [updateProfile, { isLoading: loadingUpdateProfile }] =
     useUpdateProfileMutation();
   const [uploadProductImage] = useUploadSingleImageMutation();
+  const [isUploadingImage, setIsUploadingImage] = useState<boolean>(false);
 
   // Initialize state
   const [formData, setFormData] = useState({
@@ -86,14 +87,18 @@ const EditProfile = () => {
   const uploadFileHandler = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
     if (selectedFile) {
+      setIsUploadingImage(true); // Start loading
       const fileData = new FormData();
       fileData.append("image", selectedFile);
 
       try {
         const response = await uploadProductImage(fileData).unwrap();
-        setFormData((prev) => ({ ...prev, image: response.image }));
+        console.log(response);
+        setFormData((prev) => ({ ...prev, image: response.imageUrl }));
       } catch (error) {
         handleError(error);
+      } finally {
+        setIsUploadingImage(false); // End loading
       }
     }
   };
@@ -135,9 +140,21 @@ const EditProfile = () => {
               />
               <label
                 htmlFor="file"
-                className=" flex h-[40px] w-[50%]  cursor-pointer items-center  justify-center rounded-lg bg-[#2E5834] text-white transition-all duration-300 ease-linear hover:bg-[#407948] md:w-[30%]  xl:w-[20%] 2xl:w-[15%]"
+                className="flex h-[40px] w-[50%] cursor-pointer items-center justify-center rounded-lg bg-[#2E5834] text-white transition-all duration-300 ease-linear hover:bg-[#407948] md:w-[30%] xl:w-[20%] 2xl:w-[15%]"
               >
-                Change Profile
+                {isUploadingImage ? (
+                  <div className="flex items-center justify-center gap-3">
+                    <l-tailspin
+                      size="22"
+                      stroke="3.5"
+                      speed="1"
+                      color="white"
+                    ></l-tailspin>
+                    <h1>Uploading Image</h1>
+                  </div>
+                ) : (
+                  "Change Profile"
+                )}
               </label>
               <input
                 type="file"

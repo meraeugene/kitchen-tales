@@ -10,6 +10,7 @@ import userRoutes from "./routes/userRoutes";
 import contactRoutes from "./routes/contactRoutes";
 import socialsAuthRoutes from "./routes/socialsAuthRoutes";
 import uploadImageRoutes from "./routes/uploadImageRoutes";
+import cloudinaryUploadRoute from "./routes/cloudinaryUploadRoute";
 import articleRoutes from "./routes/articleRoutes";
 import { notFound, errorHandler } from "./middlewares/errorMiddleware";
 // import job from "./cron/cron";
@@ -49,7 +50,8 @@ app.use("/api/users", userRoutes);
 app.use("/api/contacts", contactRoutes);
 app.use("/api/auth", socialsAuthRoutes);
 app.use("/api/articles", articleRoutes);
-app.use("/api/upload", uploadImageRoutes);
+// app.use("/api/upload", uploadImageRoutes); - AWS (but expired)
+app.use("/api/upload", cloudinaryUploadRoute);
 
 if (process.env.NODE_ENV === "production") {
   // set static folder

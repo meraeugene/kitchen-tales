@@ -7,8 +7,11 @@ import { useUploadSingleImageMutation } from "../../slices/uploadsApiSlice";
 import { ErrorResponse, Recipe } from "../../types";
 import { useCreateRecipeMutation } from "../../slices/recipesApiSlice";
 import { getOrdinal } from "../../utils/getOrdinal";
+import { useNavigate } from "react-router-dom";
 
 const AddRecipe = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -65,7 +68,7 @@ const AddRecipe = () => {
         toast.success(response.message);
 
         // actual image from server
-        setMainImage(response.image);
+        setMainImage(response.imageUrl);
         setMainImageError(null);
       } catch (error) {
         console.log(error);
@@ -136,7 +139,7 @@ const AddRecipe = () => {
           // Update the image of the last step by replacing the previous step object with a new object that includes the previous step properties and the new image URL obtained from the response.
           updatedSteps[index] = {
             ...updatedSteps[index],
-            image: response.image,
+            image: response.imageUrl,
           };
 
           // Return the updatedSteps array, which will replace the previous steps array in the state.
@@ -188,6 +191,7 @@ const AddRecipe = () => {
       reset();
       setMainImage("");
       setSteps([{ step: "", image: "" }]);
+      navigate("/");
     } catch (error) {
       console.log(error);
 
