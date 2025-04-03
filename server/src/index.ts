@@ -22,13 +22,13 @@ connectDb();
 
 const app = express();
 
-// app.use(
-//   cors({
-//     origin: "https://kitchen-tales.vercel.app",
-//     methods: "GET,POST,PUT,DELETE",
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: "https://kitchen-tales.onrender.com",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+  })
+);
 
 app.use(
   cors({
@@ -57,17 +57,17 @@ if (process.env.NODE_ENV === "production") {
   // set static folder
   app.use(express.static(path.join(__dirname, "../../client/dist")));
 
-  // // any route that is not an api will be redirected to index.html
-  // app.get("*", (req, res) =>
-  //   res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
-  // );
+  // any route that is not an api will be redirected to index.html
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
+  );
 } else {
   app.get("/", (req, res) => {
     res.send("API is running...");
   });
 }
 
-// app.use(notFound);
-// app.use(errorHandler);
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(port, () => console.log(`Server running on port ${port} `));
