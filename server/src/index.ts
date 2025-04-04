@@ -58,9 +58,14 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../../client/dist")));
 
   // any route that is not an api will be redirected to index.html
-  app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
-  );
+  // app.get("*", (req, res) =>
+  //   res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
+  // );
+
+   // Any route that isn't an API route should return index.html - fix 2
+   app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../../client/dist", "index.html"));
+  });
 } else {
   app.get("/", (req, res) => {
     res.send("API is running...");
