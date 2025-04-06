@@ -577,6 +577,7 @@ const getUsers = asyncHandler(async (req: Request, res: Response) => {
     const count = await User.countDocuments({ ...keyword });
 
     const users = await User.find({ ...keyword })
+      .select("-password") // This excludes the 'password' field from the result
       .sort({ isAdmin: -1, createdAt: -1 })
       .limit(pageSize)
       .skip(pageSize * (page - 1));

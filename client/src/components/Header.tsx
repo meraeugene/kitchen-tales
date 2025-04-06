@@ -23,6 +23,8 @@ import { IoCloseOutline } from "react-icons/io5";
 import { SlNotebook } from "react-icons/sl";
 import { VscBook } from "react-icons/vsc";
 import { CgProfile } from "react-icons/cg";
+import { PiNotePencilThin } from "react-icons/pi";
+import { LuUserCog } from "react-icons/lu";
 
 const Header = () => {
   const [profileNav, setProfileNav] = useState<boolean>(false);
@@ -89,6 +91,7 @@ const Header = () => {
     <header
       className={`${location.pathname === "/reset-email" || location.pathname === "/reset-password" ? "hidden" : ""} sticky top-0 z-10 w-full border-b border-[#E9E9E9] bg-white py-1`}
     >
+      {/* DESKTOP NAVBAR */}
       <div className="desktop-header hidden w-full  items-center justify-between md:flex md:px-8 lg:px-16  xl:px-24">
         <div className=" flex items-center gap-14">
           <Link to="/" className="logo">
@@ -147,7 +150,7 @@ const Header = () => {
                 />
               )}
               {profileNav && (
-                <div className="absolute right-[5px]  top-[40px] z-10  border border-gray-100 bg-white shadow-sm">
+                <div className="absolute right-[5px] top-[40px]  z-10 w-[210px]  border border-gray-100 bg-white shadow-sm">
                   <Link
                     to="/profile/edit"
                     className="flex cursor-pointer items-center gap-2  px-4 py-2  text-sm hover:bg-slate-100"
@@ -163,6 +166,26 @@ const Header = () => {
                     <CiBookmark size={20} />
                     Bookmarks
                   </Link>
+                  {userData.isAdmin && (
+                    <>
+                      <Link
+                        to="/admin/recipe-management"
+                        className="flex cursor-pointer items-center gap-2  px-4 py-2  text-sm hover:bg-slate-100"
+                        onClick={() => setProfileNav(false)}
+                      >
+                        <PiNotePencilThin size={20} />
+                        Recipe Management
+                      </Link>
+                      <Link
+                        to="/admin/user-management"
+                        className="flex cursor-pointer items-center gap-2  px-4 py-2  text-sm hover:bg-slate-100"
+                        onClick={() => setProfileNav(false)}
+                      >
+                        <LuUserCog size={20} color="gray" />
+                        User Management
+                      </Link>
+                    </>
+                  )}
                   <div
                     className="flex cursor-pointer items-center gap-2  px-4  py-2  text-sm hover:bg-slate-100"
                     onClick={logoutHandler}
@@ -202,8 +225,9 @@ const Header = () => {
         </button>
       </div>
 
+      {/* MOBILE NAVBAR */}
       {mobileNav && (
-        <div className=" mobile-nav slide-in-right nav-color fixed right-0 top-0 z-[50]     h-screen w-[60%] md:hidden">
+        <div className=" mobile-nav slide-in-right nav-color fixed right-0 top-0 z-[50]     h-screen w-[70%] md:hidden">
           <div className="relative p-10  px-8">
             <button
               onClick={toggleNav}
@@ -298,6 +322,28 @@ const Header = () => {
                       <CiBookmark />
                       Bookmarks
                     </Link>
+
+                    {userData.isAdmin && (
+                      <>
+                        <Link
+                          to="/admin/recipe-management"
+                          className={`flex items-center gap-3 text-sm transition-all  duration-300 ease-in-out ${location.pathname === "/bookmarks" ? "text-[#407948]" : ""}`}
+                          onClick={toggleNav}
+                        >
+                          <PiNotePencilThin size={20} />
+                          Recipe Management
+                        </Link>
+
+                        <Link
+                          to="/admin/user-management"
+                          className={`flex items-center gap-3 text-sm transition-all  duration-300 ease-in-out ${location.pathname === "/bookmarks" ? "text-[#407948]" : ""}`}
+                          onClick={toggleNav}
+                        >
+                          <LuUserCog size={20} color="gray" />
+                          User Management
+                        </Link>
+                      </>
+                    )}
 
                     <div
                       className={`flex items-center gap-3 text-lg transition-all  duration-300 ease-in-out `}

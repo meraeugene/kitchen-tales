@@ -10,7 +10,6 @@ const AdminRoute = () => {
   ) : (
     <Navigate to="/auth/login" replace />
   );
-  return <h1>nigger</h1>;
 };
 
 export default AdminRoute;

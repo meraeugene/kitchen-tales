@@ -157,12 +157,7 @@ const MyRecipesCard = ({ data, count, error, isLoading }: MyRecipesProps) => {
   ) : (
     <div className="mt-8">
       <div className=" rounded-[4px] border  border-blue-300 bg-blue-100 px-3 py-4 text-sm  font-normal  text-gray-800 lg:text-lg">
-        No recipes found. It looks like you haven't created any recipes yet.
-        Click{" "}
-        <Link to="/add-recipe" className="font-medium underline">
-          here{" "}
-        </Link>
-        to add recipe .
+        No recipes found. It looks this user haven't created any recipes yet.
       </div>
     </div>
   );

@@ -22,8 +22,8 @@ export interface AuthenticatedRequest extends Request {
 // @access Public
 const getRecipes = asyncHandler(async (req: Request, res: Response) => {
   try {
-    const pageSize = 10;
-    const page = Number(req.query.pageNumber) || 1;
+    const pageSize = 10; // Number of recipes per page
+    const page = Number(req.query.pageNumber) || 1; // Current page number
 
     const keyword = req.query.keyword
       ? { recipeTitle: { $regex: req.query.keyword, $options: "i" } }

@@ -28,6 +28,13 @@ const AddRecipe = lazy(() => import("./pages/user/AddRecipe.tsx"));
 const Bookmarks = lazy(() => import("./pages/user/Bookmarks.tsx"));
 const ResetEmail = lazy(() => import("./pages/user/ResetEmail.tsx"));
 
+// ADMIN ROUTE
+const AdminRoute = lazy(() => import("./components/AdminRoute.tsx"));
+const RecipeManagement = lazy(
+  () => import("./pages/admin/RecipeManagement.tsx"),
+);
+const UserManagement = lazy(() => import("./pages/admin/UserManagement.tsx"));
+
 // Create a router
 const router = createBrowserRouter([
   {
@@ -171,6 +178,34 @@ const router = createBrowserRouter([
               </Suspense>
             ),
           },
+        ],
+      },
+
+      // Admin Routes (Protected & Authorized)
+      {
+        element: (
+          <Suspense fallback={<LazyLoader />}>
+            <AdminRoute />
+          </Suspense>
+        ),
+        children: [
+          {
+            path: "/admin/recipe-management",
+            element: (
+              <Suspense fallback={<LazyLoader />}>
+                <RecipeManagement />
+              </Suspense>
+            ),
+          },
+          {
+            path: "/admin/user-management",
+            element: (
+              <Suspense fallback={<LazyLoader />}>
+                <UserManagement />
+              </Suspense>
+            ),
+          },
+          // You can add more admin-only routes here
         ],
       },
     ],

@@ -30,9 +30,6 @@ const AboutRecipeCreator = () => {
     id,
   });
 
-  console.log(recipeCreator);
-  console.log(data);
-
   const myRecipesError = errorMyRecipes;
 
   return (

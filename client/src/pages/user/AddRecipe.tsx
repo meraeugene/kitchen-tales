@@ -404,7 +404,7 @@ const AddRecipe = () => {
             </div>
             <div className="w-full basis-1/2">
               <input
-                type="text"
+                type="number"
                 placeholder="e.g 4"
                 className={`${errors.servings ? "border-[2px] border-red-500" : ""} w-full rounded-md border border-gray-200 bg-gray-50 px-3 py-4 outline-[#448c4f] lg:w-1/2 2xl:w-1/3`}
                 {...register("servings", {
@@ -425,14 +425,14 @@ const AddRecipe = () => {
 
             <div className="flex basis-1/2 gap-4">
               <input
-                type="text"
+                type="number"
                 placeholder="hours"
                 className="w-full rounded-md border border-gray-200 bg-gray-50 px-3 py-4 outline-[#448c4f]"
                 {...register("preparationTime.hours")}
               />
 
               <input
-                type="text"
+                type="number"
                 placeholder="minutes"
                 className="w-full rounded-md border border-gray-200 bg-gray-50 px-3 py-4 outline-[#448c4f]"
                 {...register("preparationTime.minutes")}
@@ -451,13 +451,13 @@ const AddRecipe = () => {
 
             <div className="flex basis-1/2 gap-4">
               <input
-                type="text"
+                type="number"
                 placeholder="hours"
                 className=" w-full rounded-md border border-gray-200 bg-gray-50 px-3 py-4 outline-[#448c4f]"
                 {...register("cookTime.hours")}
               />
               <input
-                type="text"
+                type="number"
                 placeholder="minutes"
                 className=" w-full rounded-md border border-gray-200 bg-gray-50 px-3 py-4 outline-[#448c4f]"
                 {...register("cookTime.minutes")}
@@ -476,13 +476,13 @@ const AddRecipe = () => {
 
             <div className="flex basis-1/2 gap-4">
               <input
-                type="text"
+                type="number"
                 placeholder="hours"
                 className="w-full rounded-md border border-gray-200 bg-gray-50 px-3 py-4 outline-[#448c4f]"
                 {...register("totalTime.hours")}
               />
               <input
-                type="text"
+                type="number"
                 placeholder="minutes"
                 className="w-full rounded-md border border-gray-200 bg-gray-50 px-3 py-4 outline-[#448c4f]"
                 {...register("totalTime.minutes")}
