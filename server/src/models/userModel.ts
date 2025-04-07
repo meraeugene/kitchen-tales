@@ -65,18 +65,22 @@ const userSchema = new mongoose.Schema(
       fbLink: {
         type: String,
         required: false,
+        default: "No Facebook Link Added",
       },
       igLink: {
         type: String,
         required: false,
+        default: "No Instagram Link Added",
       },
       twitterLink: {
         type: String,
         required: false,
+        default: "No Twitter Link Added",
       },
       linkedinLink: {
         type: String,
         required: false,
+        default: "No Linkedin Link Added",
       },
     },
     bookmarks: [

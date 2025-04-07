@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { ErrorResponse } from "../../types";
 import { CiEdit } from "react-icons/ci";
 import { AiOutlineDelete } from "react-icons/ai";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Loader from "../../components/Loader";
 import Message from "../../components/Message";
 import useConfirmation from "../../hooks/useConfirmation";
@@ -12,24 +12,41 @@ import {
   useGetUsersQuery,
   useDeleteUserMutation,
 } from "../../slices/usersApiSlice";
+import SearchComponent from "../../components/admin/SearchComponent";
 
 const UserManagement = () => {
   const [pageNumber, setPageNumber] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const navigate = useNavigate();
+
   const {
     data,
     isLoading,
     error: recipeError,
     refetch,
   } = useGetUsersQuery({ pageNumber });
-  const { modal, open } = useConfirmation();
 
-  console.log(data);
+  const filteredUsers = useMemo(() => {
+    if (!data?.users) return [];
+
+    return data.users.filter((user: any) =>
+      user.fullName.toLowerCase().includes(searchTerm.toLowerCase()),
+    );
+  }, [data, searchTerm]);
+
+  const { modal, open } = useConfirmation();
 
   const error = recipeError as ErrorResponse;
 
   const [deleteUser] = useDeleteUserMutation();
 
   const handleDelete = async (user: any) => {
+    if (user.isAdmin) {
+      toast.error("You cannot delete an admin user.");
+      return;
+    }
+
     const isConfirmed = await open(user.fullName);
     if (isConfirmed) {
       try {
@@ -56,13 +73,29 @@ const UserManagement = () => {
     );
   }
 
-  const { users, pages } = data;
+  const { pages } = data;
 
   return (
     <div className="p-8 lg:px-16 lg:py-12 xl:px-24">
       {modal}
+      <button
+        type="button"
+        onClick={() => navigate(-1)}
+        className="mb-6 inline-flex items-center rounded border border-gray-300 px-4 py-2 text-sm text-gray-700 transition-all hover:bg-gray-100"
+      >
+        ← Back
+      </button>
 
-      <h1 className="mb-4 font-cormorant text-3xl xl:text-4xl">Manage Users</h1>
+      <div className="mb-8 flex flex-col justify-between md:flex-row md:items-center">
+        <h1 className="mb-4 font-cormorant text-3xl xl:text-4xl">
+          Manage Users
+        </h1>
+        <SearchComponent
+          className="border md:w-[350px] "
+          onSearch={(value) => setSearchTerm(value)}
+          placeholder="Search for full name..."
+        />{" "}
+      </div>
 
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200 border">
@@ -77,50 +110,64 @@ const UserManagement = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user: any) => (
-              <tr key={user._id} className="border-t">
-                <td className="whitespace-nowrap px-4 py-2">{user.fullName}</td>
-                <td className="whitespace-nowrap px-4 py-2">{user.email}</td>
-                <td className="whitespace-nowrap px-4 py-2">{user.address}</td>
-                <td className="whitespace-nowrap px-4 py-2">{user.aboutMe}</td>
-                <td className="whitespace-nowrap px-4 py-2">
-                  <span
-                    className={`inline-block border px-2 py-1 ${
-                      user.isAdmin
-                        ? "w-1/2 rounded-md  border-red-100 bg-red-100 text-red-600"
-                        : "w-1/2 rounded-md border-blue-100 bg-blue-100 text-blue-800"
-                    }`}
-                  >
-                    {user.isAdmin ? "Admin" : "User"}
-                  </span>
-                </td>
+            {filteredUsers.length > 0 ? (
+              filteredUsers.map((user: any) => (
+                <tr key={user._id} className="border-t">
+                  <td className="whitespace-nowrap px-4 py-2">
+                    {user.fullName}
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2">{user.email}</td>
+                  <td className="whitespace-nowrap px-4 py-2">
+                    {user.address}
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2">
+                    {user.aboutMe}
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2">
+                    <span
+                      className={`inline-block border px-2 py-1 ${
+                        user.isAdmin
+                          ? " rounded-md  border-red-100 bg-red-100 text-red-600"
+                          : " rounded-md border-blue-100 bg-blue-100 text-blue-800"
+                      }`}
+                    >
+                      {user.isAdmin ? "Admin" : "User"}
+                    </span>
+                  </td>
 
-                <td className="flex items-center space-x-2 px-4 py-2">
-                  <Link
-                    to={`/recipe/about-creator/${user._id}`}
-                    className="rounded-md border p-2 text-blue-600 transition-all ease-in-out hover:bg-blue-100"
-                  >
-                    <IoEyeOutline />
-                  </Link>
-                  <Link
-                    to={`/admin/recipes/edit/${user._id}`}
-                    className="rounded-md border p-2 text-green-600 transition-all ease-in-out hover:bg-blue-100"
-                  >
-                    <CiEdit />
-                  </Link>
-                  <button
-                    onClick={() => handleDelete(user)}
-                    className="rounded-md border p-2 text-red-600 transition-all ease-in-out hover:bg-red-100"
-                  >
-                    <AiOutlineDelete />
-                  </button>
+                  <td className="flex items-center space-x-2 px-4 py-2">
+                    <Link
+                      to={`/recipe/about-creator/${user._id}`}
+                      className="rounded-md border p-2 text-blue-600 transition-all ease-in-out hover:bg-blue-100"
+                    >
+                      <IoEyeOutline />
+                    </Link>
+                    <Link
+                      to={`/admin/users/edit/${user._id}`}
+                      className="rounded-md border p-2 text-green-600 transition-all ease-in-out hover:bg-blue-100"
+                    >
+                      <CiEdit />
+                    </Link>
+                    <button
+                      onClick={() => handleDelete(user)}
+                      className="rounded-md border p-2 text-red-600 transition-all ease-in-out hover:bg-red-100"
+                    >
+                      <AiOutlineDelete />
+                    </button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan={6} className="p-4 text-center text-lg">
+                  No user found with the full name of{" "}
+                  <span className="font-medium italic">"{searchTerm}"</span>.
                 </td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       </div>
-
       <div className="mt-8 flex flex-wrap items-center gap-4 md:justify-center">
         <button
           onClick={() => handlePageChange(pageNumber - 1)}

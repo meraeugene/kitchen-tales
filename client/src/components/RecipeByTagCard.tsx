@@ -152,12 +152,16 @@ const RecipeByTagCard = ({ tag, count, currentRecipeId }: RecipeByTagProps) => {
                       </h1>
                     </Link>
 
-                    <Link to={`/recipe/about-creator/${recipe.user._id}`}>
-                      By{" "}
-                      <span className="text-green-800 xl:text-base">
-                        {recipe.user.fullName}
-                      </span>
-                    </Link>
+                    {recipe.user ? (
+                      <Link to={`/recipe/about-creator/${recipe.user._id}`}>
+                        By{" "}
+                        <span className="text-green-800 xl:text-base">
+                          {recipe.user.fullName}
+                        </span>
+                      </Link>
+                    ) : (
+                      <p className="text-gray-500">By Unknown</p>
+                    )}
 
                     <div className="mb-2 mt-2 flex flex-wrap items-center gap-2">
                       <h6 className="rounded-sm border border-gray-200 px-1 py-[2px] text-sm shadow-sm xl:px-[.30rem] xl:text-base">

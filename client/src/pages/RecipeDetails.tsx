@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useGetRecipeDetailsQuery } from "../slices/recipesApiSlice";
 import Rating from "../components/Rating";
 import Loader from "../components/Loader";
@@ -40,6 +40,8 @@ const RecipeDetails = () => {
   const recipeTitle = new URLSearchParams(location.search).get("recipeTitle");
   const commentSectionRef = useRef<HTMLDivElement>(null);
   const componentRef = useRef<HTMLDivElement>(null);
+
+  const navigate = useNavigate();
 
   const scrollToComment = () => {
     if (commentSectionRef.current) {
@@ -113,6 +115,14 @@ const RecipeDetails = () => {
 
   return (
     <div className="p-8 lg:px-16 lg:py-12 xl:px-24">
+      <button
+        type="button"
+        onClick={() => navigate(-1)}
+        className="mb-6 inline-flex items-center rounded border border-gray-300 px-4 py-2 text-sm text-gray-700 transition-all hover:bg-gray-100"
+      >
+        ← Back
+      </button>
+
       {recipeLoading ? (
         <Loader />
       ) : error ? (

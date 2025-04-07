@@ -22,13 +22,13 @@ connectDb();
 
 const app = express();
 
-// app.use(
-//   cors({
-//     origin: "https://kitchen-tales.onrender.com",
-//     methods: "GET,POST,PUT,DELETE",
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: "https://kitchen-tales.onrender.com",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+  })
+);
 
 app.use(
   cors({
@@ -62,8 +62,8 @@ if (process.env.NODE_ENV === "production") {
   //   res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
   // );
 
-   // Any route that isn't an API route should return index.html - fix 2
-   app.get("*", (req, res) => {
+  // Any route that isn't an API route should return index.html - fix 2
+  app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "../../client/dist", "index.html"));
   });
 } else {

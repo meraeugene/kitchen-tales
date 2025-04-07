@@ -11,7 +11,7 @@ interface AsideProps {
 
 const Aside: React.FC<AsideProps> = ({ title, links }) => {
   return (
-    <aside className="hidden bg-[#D7E0D8] md:block md:basis-[35%] lg:basis-[30%] xl:basis-[25%] 2xl:basis-[20%]">
+    <aside className="hidden bg-[#D7E0D8] md:block md:basis-[35%]  xl:basis-[25%] 2xl:basis-[20%]">
       <h1 className="p-6 text-xl font-semibold md:px-8 lg:px-16 xl:px-24">
         {title}
       </h1>

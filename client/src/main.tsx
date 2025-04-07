@@ -29,11 +29,12 @@ const Bookmarks = lazy(() => import("./pages/user/Bookmarks.tsx"));
 const ResetEmail = lazy(() => import("./pages/user/ResetEmail.tsx"));
 
 // ADMIN ROUTE
-const AdminRoute = lazy(() => import("./components/AdminRoute.tsx"));
+const AdminRoute = lazy(() => import("./components/admin/AdminRoute.tsx"));
 const RecipeManagement = lazy(
   () => import("./pages/admin/RecipeManagement.tsx"),
 );
 const UserManagement = lazy(() => import("./pages/admin/UserManagement.tsx"));
+const EditUser = lazy(() => import("./pages/admin/EditUser.tsx"));
 
 // Create a router
 const router = createBrowserRouter([
@@ -202,6 +203,14 @@ const router = createBrowserRouter([
             element: (
               <Suspense fallback={<LazyLoader />}>
                 <UserManagement />
+              </Suspense>
+            ),
+          },
+          {
+            path: "/admin/users/edit/:id",
+            element: (
+              <Suspense fallback={<LazyLoader />}>
+                <EditUser />
               </Suspense>
             ),
           },

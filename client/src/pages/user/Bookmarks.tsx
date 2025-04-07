@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   useAddToBookmarkMutation,
   useGetBookmarkedRecipesQuery,
@@ -21,6 +21,7 @@ import { useEffect } from "react";
 
 const Bookmarks = () => {
   const { userInfo } = useSelector((state: RootState) => state.auth);
+  const navigate = useNavigate();
 
   const { pageNumber } = useParams();
 
@@ -85,6 +86,14 @@ const Bookmarks = () => {
 
   return (
     <div className="p-8 lg:px-16 lg:py-12 lg:pb-20 xl:px-24">
+      <button
+        type="button"
+        onClick={() => navigate(-1)}
+        className="mb-6 inline-flex items-center rounded border border-gray-300 px-4 py-2 text-sm text-gray-700 transition-all hover:bg-gray-100"
+      >
+        ← Back
+      </button>
+
       <h1 className="mb-8 font-cormorant text-4xl ">My Bookmarks</h1>
       {isLoading ? (
         <div className="my-24 flex items-center justify-center">

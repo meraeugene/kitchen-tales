@@ -677,19 +677,32 @@ const updateUser = asyncHandler(async (req: Request, res: Response) => {
     const user = await User.findById(req.params.id);
 
     if (user) {
-      user.fullName = req.body.fullname || user.fullName;
-      user.email = req.body.email || user.email;
-      user.isAdmin = Boolean(req.body.isAdmin);
+      user.fullName = req.body.fullName || user.fullName;
+      user.image = req.body.image || user.image;
+      user.address = req.body.address || user.address;
+      user.aboutMe = req.body.aboutMe || user.aboutMe;
+      user.socials.fbLink = req.body.socials.fbLink || user.socials.fbLink;
+      user.socials.igLink = req.body.socials.igLink || user.socials.igLink;
+      user.socials.twitterLink =
+        req.body.socials.twitterLink || user.socials.twitterLink;
+      user.socials.linkedinLink =
+        req.body.socials.linkedinLink || user.socials.linkedinLink;
 
       const updatedUser = await user.save();
 
       res.status(200).json({
         status: "SUCCESS",
         data: {
-          _id: updatedUser._id,
           fullName: updatedUser.fullName,
-          email: updatedUser.email,
-          isAdmin: updatedUser.isAdmin,
+          address: updatedUser.address,
+          aboutMe: updatedUser.aboutMe,
+          image: updatedUser.image,
+          socials: {
+            fbLink: updatedUser.socials.fbLink,
+            igLink: updatedUser.socials.igLink,
+            twtitterLink: updatedUser.socials.twitterLink,
+            linkedinLink: updatedUser.socials.linkedinLink,
+          },
         },
         message: "User updated successfully",
       });

@@ -327,7 +327,7 @@ const Header = () => {
                       <>
                         <Link
                           to="/admin/recipe-management"
-                          className={`flex items-center gap-3 text-sm transition-all  duration-300 ease-in-out ${location.pathname === "/bookmarks" ? "text-[#407948]" : ""}`}
+                          className={`flex items-center gap-3 text-sm transition-all  duration-300 ease-in-out ${location.pathname === "/recipe-management" ? "text-[#407948]" : ""}`}
                           onClick={toggleNav}
                         >
                           <PiNotePencilThin size={20} />
@@ -336,7 +336,7 @@ const Header = () => {
 
                         <Link
                           to="/admin/user-management"
-                          className={`flex items-center gap-3 text-sm transition-all  duration-300 ease-in-out ${location.pathname === "/bookmarks" ? "text-[#407948]" : ""}`}
+                          className={`flex items-center gap-3 text-sm transition-all  duration-300 ease-in-out ${location.pathname === "/user-management" ? "text-[#407948]" : ""}`}
                           onClick={toggleNav}
                         >
                           <LuUserCog size={20} color="gray" />
