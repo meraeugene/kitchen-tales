@@ -5,7 +5,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { ErrorResponse, Recipe } from "../../types";
-import { CiEdit } from "react-icons/ci";
+// import { CiEdit } from "react-icons/ci";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useMemo, useState } from "react";
 import Loader from "../../components/Loader";
@@ -132,12 +132,12 @@ const RecipeManagement = () => {
                     >
                       <IoEyeOutline />
                     </Link>
-                    <Link
+                    {/* <Link
                       to={`/admin/recipes/edit/${recipe._id}`}
                       className="rounded-md border p-2 text-green-600 transition-all ease-in-out hover:bg-blue-100"
                     >
                       <CiEdit />
-                    </Link>
+                    </Link> */}
                     <button
                       onClick={() => handleDelete(recipe)}
                       className="rounded-md border p-2 text-red-600 transition-all ease-in-out hover:bg-red-100"
