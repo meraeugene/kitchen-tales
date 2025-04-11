@@ -253,7 +253,7 @@ const AddRecipe = () => {
 
               <label
                 htmlFor="mainImage"
-                className="2xl:w-10%] absolute left-1/2 top-1/2 flex h-[45px] w-[60%]  -translate-x-1/2 -translate-y-1/2 transform cursor-pointer items-center justify-center gap-2 rounded-full bg-[#2E5834] px-4 text-white md:w-[25%] lg:w-[20%] xl:w-[15%] "
+                className="2xl:w-10%] absolute left-1/2 top-1/2 flex h-[45px] w-[60%]  -translate-x-1/2 -translate-y-1/2 transform cursor-pointer items-center justify-center gap-2 rounded-full bg-[#2E5834] px-4 text-white md:w-[30%] lg:w-[25%] xl:w-[20%] "
               >
                 {isUploadingMainImage ? (
                   <>
@@ -778,7 +778,7 @@ const AddRecipe = () => {
               <option value="Middle Eastern">Middle Eastern</option>
               <option value="African">African</option>
               <option value="French">French</option>
-              <option value="French">Global</option>
+              <option value="Global">Global</option>
             </select>
           </label>
 
@@ -816,7 +816,7 @@ const AddRecipe = () => {
               <option value="Soup">Soup</option>
               <option value="Main Course">Main Course</option>
               <option value="Beverage">Beverage</option>
-              <option value="Beverage">Drink</option>
+              <option value="Drink">Drink</option>
             </select>
           </label>
 
