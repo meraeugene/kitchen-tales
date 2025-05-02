@@ -89,7 +89,7 @@ const Header = () => {
 
   return (
     <header
-      className={`${location.pathname === "/reset-email" || location.pathname === "/reset-password" ? "hidden" : ""} sticky top-0 z-10 w-full border-b border-[#E9E9E9] bg-white py-1`}
+      className={`${location.pathname === "/reset-email" || location.pathname === "/reset-password" ? "hidden" : ""}  top-0 z-10 w-full border-b border-[#E9E9E9] bg-white py-1`}
     >
       {/* DESKTOP NAVBAR */}
       <div className="desktop-header hidden w-full  items-center justify-between md:flex md:px-8 lg:px-16  xl:px-24">

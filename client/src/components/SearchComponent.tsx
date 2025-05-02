@@ -35,7 +35,7 @@ const SearchComponent = ({ className }: SearchProps) => {
   };
 
   return (
-    <form className=" sticky top-[50px] z-[5]">
+    <form className=" z-[5]">
       <div className={`${className} relative h-12 focus-within:shadow-lg`}>
         <IoIosSearch
           color="#121212"
