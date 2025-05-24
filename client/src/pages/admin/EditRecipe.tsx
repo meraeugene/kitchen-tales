@@ -76,7 +76,7 @@ const EditRecipePage = () => {
   return (
     <div className="p-8 lg:px-16 lg:py-12 xl:px-24">
       <h1 className="mb-6 text-3xl font-bold">Edit Recipe</h1>
-      <form onSubmit={handleSubmit} className="w-1/2 space-y-6">
+      <form onSubmit={handleSubmit} className="w-full md:w-1/2 space-y-6">
         {/* Recipe Title */}
         <div>
           <label htmlFor="recipeTitle" className="mb-1 block font-semibold">
