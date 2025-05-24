@@ -33,6 +33,7 @@ const AdminRoute = lazy(() => import("./components/admin/AdminRoute.tsx"));
 const RecipeManagement = lazy(
   () => import("./pages/admin/RecipeManagement.tsx"),
 );
+const EditRecipe = lazy(() => import("./pages/admin/EditRecipe.tsx"));
 const UserManagement = lazy(() => import("./pages/admin/UserManagement.tsx"));
 const EditUser = lazy(() => import("./pages/admin/EditUser.tsx"));
 
@@ -195,6 +196,14 @@ const router = createBrowserRouter([
             element: (
               <Suspense fallback={<LazyLoader />}>
                 <RecipeManagement />
+              </Suspense>
+            ),
+          },
+          {
+            path: "/admin/recipes/edit/:id",
+            element: (
+              <Suspense fallback={<LazyLoader />}>
+                <EditRecipe />
               </Suspense>
             ),
           },

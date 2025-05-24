@@ -284,30 +284,57 @@ const createRecipe = asyncHandler<AuthenticatedRequest>(async (req, res) => {
     res.status(500).json(error);
   }
 });
-
-// @desc Update a recipe
-// @route PUT /api/recipes/:id
-// @access Private/Admin
+// @desc    Update a recipe
+// @route   PUT /api/recipes/:id
+// @access  Private/Admin
 const updateRecipe = asyncHandler<AuthenticatedRequest>(async (req, res) => {
   try {
     const recipe = await Recipe.findById(req.params.id);
 
+    console.log(recipe);
+
     if (!recipe) {
-      res.status(404).json({ message: "Recipe not found" });
-      return;
+      return res.status(404).json({ message: "Recipe not found" });
     }
 
-    const { recipeTitle, description, image } = req.body;
+    // Update all editable fields
+    const {
+      recipeTitle,
+      description,
+      mainImage,
+      servings,
+      tags,
+      videoLink,
+      cookTime,
+      cuisineType,
+      dietPreference,
+      mealType,
+      ingredients,
+      instructions,
+    } = req.body;
 
-    recipe.recipeTitle = recipeTitle;
+    if (recipeTitle !== undefined) recipe.recipeTitle = recipeTitle;
+    if (description !== undefined) recipe.description = description;
+    if (mainImage !== undefined) recipe.mainImage = mainImage;
+    if (servings !== undefined) recipe.servings = servings;
+    if (tags !== undefined) recipe.tags = tags;
+    if (videoLink !== undefined) recipe.videoLink = videoLink;
+    if (cookTime !== undefined) recipe.cookTime = cookTime;
+    if (cuisineType !== undefined) recipe.cuisineType = cuisineType;
+    if (dietPreference !== undefined) recipe.dietPreference = dietPreference;
+    if (mealType !== undefined) recipe.mealType = mealType;
+    if (ingredients !== undefined) recipe.ingredients = ingredients;
+    if (instructions !== undefined) recipe.instructions = instructions;
 
     const updatedRecipe = await recipe.save();
+
     res.status(200).json({
       message: "Recipe updated successfully",
       data: updatedRecipe,
     });
   } catch (error) {
-    res.status(500).json({ message: error });
+    console.error("Update error:", error);
+    res.status(500).json({ message: "Server error during recipe update" });
   }
 });
 

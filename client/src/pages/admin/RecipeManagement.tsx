@@ -13,6 +13,7 @@ import Message from "../../components/Message";
 import useConfirmation from "../../hooks/useConfirmation";
 import { IoEyeOutline } from "react-icons/io5";
 import SearchComponent from "../../components/admin/SearchComponent";
+import { CiEdit } from "react-icons/ci";
 
 const RecipeManagement = () => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -132,12 +133,12 @@ const RecipeManagement = () => {
                     >
                       <IoEyeOutline />
                     </Link>
-                    {/* <Link
+                    <Link
                       to={`/admin/recipes/edit/${recipe._id}`}
                       className="rounded-md border p-2 text-green-600 transition-all ease-in-out hover:bg-blue-100"
                     >
                       <CiEdit />
-                    </Link> */}
+                    </Link>
                     <button
                       onClick={() => handleDelete(recipe)}
                       className="rounded-md border p-2 text-red-600 transition-all ease-in-out hover:bg-red-100"
